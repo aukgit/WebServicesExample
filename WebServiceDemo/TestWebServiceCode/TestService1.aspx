@@ -15,6 +15,8 @@
     
     </div>
         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <asp:GridView ID="GridView1" runat="server">
+        </asp:GridView>
     </form>
 </body>
 </html>

@@ -17,6 +17,9 @@ namespace WebServiceDemo.TestWebServiceCode {
 
             var output = client.HelloWorld(input);
             this.Label1.Text = output;
+            client.KeepInSession(output);
+            this.GridView1.DataSource = client.GetListFromSession();
+            this.GridView1.DataBind();
         }
     }
 }

@@ -16,6 +16,31 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="KeepInSession">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KeepInSessionResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetListFromSession">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetListFromSessionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListFromSessionResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="HelloWorldSoapIn">
@@ -24,10 +49,30 @@
   <wsdl:message name="HelloWorldSoapOut">
     <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
   </wsdl:message>
+  <wsdl:message name="KeepInSessionSoapIn">
+    <wsdl:part name="parameters" element="tns:KeepInSession" />
+  </wsdl:message>
+  <wsdl:message name="KeepInSessionSoapOut">
+    <wsdl:part name="parameters" element="tns:KeepInSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListFromSessionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListFromSession" />
+  </wsdl:message>
+  <wsdl:message name="GetListFromSessionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListFromSessionResponse" />
+  </wsdl:message>
   <wsdl:portType name="ServiceSample1Soap">
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
       <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KeepInSession">
+      <wsdl:input message="tns:KeepInSessionSoapIn" />
+      <wsdl:output message="tns:KeepInSessionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListFromSession">
+      <wsdl:input message="tns:GetListFromSessionSoapIn" />
+      <wsdl:output message="tns:GetListFromSessionSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ServiceSample1Soap" type="tns:ServiceSample1Soap">
@@ -41,11 +86,47 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="KeepInSession">
+      <soap:operation soapAction="http://tempuri.org/KeepInSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListFromSession">
+      <soap:operation soapAction="http://tempuri.org/GetListFromSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="ServiceSample1Soap12" type="tns:ServiceSample1Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="HelloWorld">
       <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KeepInSession">
+      <soap12:operation soapAction="http://tempuri.org/KeepInSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListFromSession">
+      <soap12:operation soapAction="http://tempuri.org/GetListFromSession" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
