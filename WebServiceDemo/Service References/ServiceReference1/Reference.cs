@@ -25,11 +25,18 @@ namespace WebServiceDemo.ServiceReference1 {
     public interface ServiceSample1Soap {
         
         // CODEGEN: Generating message contract since element name name from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HelloWorld", ReplyAction="*")]
-        WebServiceDemo.ServiceReference1.HelloWorldResponse HelloWorld(WebServiceDemo.ServiceReference1.HelloWorldRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddName", ReplyAction="*")]
+        WebServiceDemo.ServiceReference1.AddNameResponse AddName(WebServiceDemo.ServiceReference1.AddNameRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HelloWorld", ReplyAction="*")]
-        System.Threading.Tasks.Task<WebServiceDemo.ServiceReference1.HelloWorldResponse> HelloWorldAsync(WebServiceDemo.ServiceReference1.HelloWorldRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddName", ReplyAction="*")]
+        System.Threading.Tasks.Task<WebServiceDemo.ServiceReference1.AddNameResponse> AddNameAsync(WebServiceDemo.ServiceReference1.AddNameRequest request);
+        
+        // CODEGEN: Generating message contract since the wrapper name (AddName2Names) of message AddName2Names does not match the default value (AddName1)
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddName2Names", ReplyAction="*")]
+        WebServiceDemo.ServiceReference1.AddName2Names1 AddName1(WebServiceDemo.ServiceReference1.AddName2Names request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddName2Names", ReplyAction="*")]
+        System.Threading.Tasks.Task<WebServiceDemo.ServiceReference1.AddName2Names1> AddName1Async(WebServiceDemo.ServiceReference1.AddName2Names request);
         
         // CODEGEN: Generating message contract since element name name from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KeepInSession", ReplyAction="*")]
@@ -50,15 +57,15 @@ namespace WebServiceDemo.ServiceReference1 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class HelloWorldRequest {
+    public partial class AddNameRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="HelloWorld", Namespace="http://tempuri.org/", Order=0)]
-        public WebServiceDemo.ServiceReference1.HelloWorldRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddName", Namespace="http://tempuri.org/", Order=0)]
+        public WebServiceDemo.ServiceReference1.AddNameRequestBody Body;
         
-        public HelloWorldRequest() {
+        public AddNameRequest() {
         }
         
-        public HelloWorldRequest(WebServiceDemo.ServiceReference1.HelloWorldRequestBody Body) {
+        public AddNameRequest(WebServiceDemo.ServiceReference1.AddNameRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -67,15 +74,15 @@ namespace WebServiceDemo.ServiceReference1 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class HelloWorldRequestBody {
+    public partial class AddNameRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
         public string name;
         
-        public HelloWorldRequestBody() {
+        public AddNameRequestBody() {
         }
         
-        public HelloWorldRequestBody(string name) {
+        public AddNameRequestBody(string name) {
             this.name = name;
         }
     }
@@ -84,15 +91,15 @@ namespace WebServiceDemo.ServiceReference1 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class HelloWorldResponse {
+    public partial class AddNameResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="HelloWorldResponse", Namespace="http://tempuri.org/", Order=0)]
-        public WebServiceDemo.ServiceReference1.HelloWorldResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddNameResponse", Namespace="http://tempuri.org/", Order=0)]
+        public WebServiceDemo.ServiceReference1.AddNameResponseBody Body;
         
-        public HelloWorldResponse() {
+        public AddNameResponse() {
         }
         
-        public HelloWorldResponse(WebServiceDemo.ServiceReference1.HelloWorldResponseBody Body) {
+        public AddNameResponse(WebServiceDemo.ServiceReference1.AddNameResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -101,16 +108,54 @@ namespace WebServiceDemo.ServiceReference1 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class HelloWorldResponseBody {
+    public partial class AddNameResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string HelloWorldResult;
+        public string AddNameResult;
         
-        public HelloWorldResponseBody() {
+        public AddNameResponseBody() {
         }
         
-        public HelloWorldResponseBody(string HelloWorldResult) {
-            this.HelloWorldResult = HelloWorldResult;
+        public AddNameResponseBody(string AddNameResult) {
+            this.AddNameResult = AddNameResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AddName2Names", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class AddName2Names {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string name;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string name2;
+        
+        public AddName2Names() {
+        }
+        
+        public AddName2Names(string name, string name2) {
+            this.name = name;
+            this.name2 = name2;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AddName2NamesResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class AddName2Names1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string AddName2NamesResult;
+        
+        public AddName2Names1() {
+        }
+        
+        public AddName2Names1(string AddName2NamesResult) {
+            this.AddName2NamesResult = AddName2NamesResult;
         }
     }
     
@@ -264,28 +309,53 @@ namespace WebServiceDemo.ServiceReference1 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WebServiceDemo.ServiceReference1.HelloWorldResponse WebServiceDemo.ServiceReference1.ServiceSample1Soap.HelloWorld(WebServiceDemo.ServiceReference1.HelloWorldRequest request) {
-            return base.Channel.HelloWorld(request);
+        WebServiceDemo.ServiceReference1.AddNameResponse WebServiceDemo.ServiceReference1.ServiceSample1Soap.AddName(WebServiceDemo.ServiceReference1.AddNameRequest request) {
+            return base.Channel.AddName(request);
         }
         
-        public string HelloWorld(string name) {
-            WebServiceDemo.ServiceReference1.HelloWorldRequest inValue = new WebServiceDemo.ServiceReference1.HelloWorldRequest();
-            inValue.Body = new WebServiceDemo.ServiceReference1.HelloWorldRequestBody();
+        public string AddName(string name) {
+            WebServiceDemo.ServiceReference1.AddNameRequest inValue = new WebServiceDemo.ServiceReference1.AddNameRequest();
+            inValue.Body = new WebServiceDemo.ServiceReference1.AddNameRequestBody();
             inValue.Body.name = name;
-            WebServiceDemo.ServiceReference1.HelloWorldResponse retVal = ((WebServiceDemo.ServiceReference1.ServiceSample1Soap)(this)).HelloWorld(inValue);
-            return retVal.Body.HelloWorldResult;
+            WebServiceDemo.ServiceReference1.AddNameResponse retVal = ((WebServiceDemo.ServiceReference1.ServiceSample1Soap)(this)).AddName(inValue);
+            return retVal.Body.AddNameResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WebServiceDemo.ServiceReference1.HelloWorldResponse> WebServiceDemo.ServiceReference1.ServiceSample1Soap.HelloWorldAsync(WebServiceDemo.ServiceReference1.HelloWorldRequest request) {
-            return base.Channel.HelloWorldAsync(request);
+        System.Threading.Tasks.Task<WebServiceDemo.ServiceReference1.AddNameResponse> WebServiceDemo.ServiceReference1.ServiceSample1Soap.AddNameAsync(WebServiceDemo.ServiceReference1.AddNameRequest request) {
+            return base.Channel.AddNameAsync(request);
         }
         
-        public System.Threading.Tasks.Task<WebServiceDemo.ServiceReference1.HelloWorldResponse> HelloWorldAsync(string name) {
-            WebServiceDemo.ServiceReference1.HelloWorldRequest inValue = new WebServiceDemo.ServiceReference1.HelloWorldRequest();
-            inValue.Body = new WebServiceDemo.ServiceReference1.HelloWorldRequestBody();
+        public System.Threading.Tasks.Task<WebServiceDemo.ServiceReference1.AddNameResponse> AddNameAsync(string name) {
+            WebServiceDemo.ServiceReference1.AddNameRequest inValue = new WebServiceDemo.ServiceReference1.AddNameRequest();
+            inValue.Body = new WebServiceDemo.ServiceReference1.AddNameRequestBody();
             inValue.Body.name = name;
-            return ((WebServiceDemo.ServiceReference1.ServiceSample1Soap)(this)).HelloWorldAsync(inValue);
+            return ((WebServiceDemo.ServiceReference1.ServiceSample1Soap)(this)).AddNameAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WebServiceDemo.ServiceReference1.AddName2Names1 WebServiceDemo.ServiceReference1.ServiceSample1Soap.AddName1(WebServiceDemo.ServiceReference1.AddName2Names request) {
+            return base.Channel.AddName1(request);
+        }
+        
+        public string AddName1(string name, string name2) {
+            WebServiceDemo.ServiceReference1.AddName2Names inValue = new WebServiceDemo.ServiceReference1.AddName2Names();
+            inValue.name = name;
+            inValue.name2 = name2;
+            WebServiceDemo.ServiceReference1.AddName2Names1 retVal = ((WebServiceDemo.ServiceReference1.ServiceSample1Soap)(this)).AddName1(inValue);
+            return retVal.AddName2NamesResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WebServiceDemo.ServiceReference1.AddName2Names1> WebServiceDemo.ServiceReference1.ServiceSample1Soap.AddName1Async(WebServiceDemo.ServiceReference1.AddName2Names request) {
+            return base.Channel.AddName1Async(request);
+        }
+        
+        public System.Threading.Tasks.Task<WebServiceDemo.ServiceReference1.AddName2Names1> AddName1Async(string name, string name2) {
+            WebServiceDemo.ServiceReference1.AddName2Names inValue = new WebServiceDemo.ServiceReference1.AddName2Names();
+            inValue.name = name;
+            inValue.name2 = name2;
+            return ((WebServiceDemo.ServiceReference1.ServiceSample1Soap)(this)).AddName1Async(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

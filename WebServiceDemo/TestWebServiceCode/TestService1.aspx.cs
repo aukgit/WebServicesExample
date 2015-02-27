@@ -15,7 +15,7 @@ namespace WebServiceDemo.TestWebServiceCode {
             ServiceReference1.ServiceSample1SoapClient client = new ServiceReference1.ServiceSample1SoapClient();
             var input = this.TextBox1.Text;
 
-            var output = client.HelloWorld(input);
+            var output = client.AddName(input);
             this.Label1.Text = output;
             client.KeepInSession(output);
             this.GridView1.DataSource = client.GetListFromSession(); // make sure webconfig has allowcookies=true

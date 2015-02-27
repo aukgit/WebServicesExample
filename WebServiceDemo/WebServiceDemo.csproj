@@ -94,9 +94,6 @@
     </None>
     <Content Include="TestWebServiceCode\TestService1.aspx" />
     <Content Include="Web.config" />
-    <Content Include="Service References\ServiceReference1\WebServiceDemo.ServiceReference1.HelloWorldResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Service References\ServiceReference1\WebServiceDemo.ServiceReference1.ArrayOfString.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -104,6 +101,12 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Service References\ServiceReference1\WebServiceDemo.ServiceReference1.KeepInSessionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\WebServiceDemo.ServiceReference1.AddName2Names1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference1\WebServiceDemo.ServiceReference1.AddNameResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
   </ItemGroup>
